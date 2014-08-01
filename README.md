@@ -1,5 +1,4 @@
-Angular MVP (minimum viable product)
-jquery wrapper with data binding
+Angular MVP (minimum viable product) jquery wrapper with data binding
 =====================================================
 
 Using a custom directive to wrap some jQuery. In this case its the .scrollLeft() method.
