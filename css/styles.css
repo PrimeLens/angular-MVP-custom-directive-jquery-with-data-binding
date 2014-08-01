@@ -1,0 +1,52 @@
+html {
+    height: 100%;
+}
+
+body { 
+    height: 100%;
+    margin: 0;
+    padding-left: 50px;
+    background: #ccc;
+    font-size: 18px;
+    color: #545454;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+#readout { 
+    height: 30px; 
+    line-height: 30px; 
+    background: #eee;
+    margin: 15px 250px 15px 0;
+    padding-left: 15px;
+}
+#wrapper {
+    position: relative;
+    height: 570px;
+    width: 500px;
+    background: #eee;
+    overflow: auto;     
+}
+#scroller {
+    position: relative;
+    background: #eee;
+    font-size: 174px;    
+    line-height: 1;
+    overflow: hidden;    
+    width: 2000px;
+    height: 550px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;            
+    text-size-adjust: none;    
+}
