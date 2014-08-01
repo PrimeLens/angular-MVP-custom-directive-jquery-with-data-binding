@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+
+    <script type="text/javascript">    
+    
+    var myapp = angular.module('myapp', []);
+    
+    myapp.controller(
+        'appcontrol',
+        [
+            '$scope',
+            '$log',
+            '$interval',
+            function($scope, $log, $interval) {
+                
+                $scope.message = 'Hello this is a test of a jquery method reacting to a $scope var';
+                $scope.xpos = 0;  
+                
+                $interval(function(){
+                    $scope.xpos+=600;
+                    $scope.xpos = $scope.xpos > 1200 ? 0 : $scope.xpos;
+                }, 1500);
+            
+            }  
+        ]
+    );
+        
+    
+    myapp.directive('scrolldirective', function($timeout) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+
+               scope.$watch('xpos', function() {
+// hack : wrap it in $timeout to push it to the end of the update cycle
+// http://stackoverflow.com/questions/23175761/angular-jqueryhorizontal-scrolling-a-div-from-a-controller-or-directive    
+                    $timeout(function() {
+                        $(element).scrollLeft( scope.xpos );
+                    }, 1);
+               });
+
+
+            }
+        };
+    });
+
+    
+
+    </script>
+</head>
+<body>
+
+    <div ng-controller="appcontrol">
+    
+        <div id="readout">X position = {{xpos}}px</div>
+        
+        <div id="wrapper" scrolldirective>            
+            <div id="scroller">{{message}}<div>
+        </div>
+            
+    </div>
+
+</body>
+</html>
